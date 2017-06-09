@@ -1,0 +1,14 @@
+version: '2'
+services:
+    vice-db:
+        extends:
+          file: couchbase/docker-compose.yaml
+          service: couchbase
+    vice-mq:
+        extends:
+          file: rabbitmq/docker-compose.yaml
+          service: rabbitmq
+    vice-web-gui:
+        extends:
+          file: web-gui/docker-compose.yaml
+          service: web-gui
