@@ -2,3 +2,4 @@
 
 This is the main repository of the ViCE Registry.
 
+![ViCE Registry components](components.png "ViCE Registry components")
