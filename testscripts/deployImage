@@ -1,0 +1,14 @@
+#!/bin/bash
+
+body="{
+  \"environmentId\": \"jjJkwz\",
+  \"imageid\": \"AWX40I\",
+  \"userid\": \"admin\"
+}"
+
+echo $body
+
+curl -X POST "http://localhost:8080/v1/deploy" -H  "accept: application/json" \
+	-H  "authorization: Basic YWRtaW46YWRtaW4=" \
+	-H  "content-type: application/json" \
+	-d "$body"

@@ -1,0 +1,34 @@
+#!/bin/bash
+
+body="{
+     \"credentials\": {
+      \"location\": \"http://link-to-openstack:5000/v2.0\",
+      \"password\": \"password\",
+      \"username\": \"vice\",
+      \"specifics\": {
+        \"TenantName\": \"vice\",
+        \"Region\": \"RegionOne\"
+      }
+    },
+    \"id\": \"wzDkh0\",
+    \"managementlayer\": {
+      \"software\": \"openstack\",
+      \"type\": \"cloudcomputing\",
+      \"version\": \"kilo\"
+    },
+    \"runtimetechnology\": {
+      \"software\": \"kvm\",
+      \"type\": \"virtualmachine\",
+      \"version\": \"string\"
+    },
+    \"userid\": \"admin\"
+}"
+
+echo $body
+
+curl -X POST "http://localhost:8080/v1/environments" -H  "accept: application/json" \
+	-H  "authorization: Basic YWRtaW46YWRtaW4=" \
+	-H  "content-type: application/json" \
+	-d "$body"
+
+

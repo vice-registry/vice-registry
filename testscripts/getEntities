@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo "Images:"
+curl -s -X GET "http://localhost:8080/v1/images" -H  "accept: application/json" -H  "authorization: Basic YWRtaW46YWRtaW4="  | jq
+
+echo ""
+echo ""
+
+echo "Environments:"
+curl -s -X GET "http://localhost:8080/v1/environments" -H  "accept: application/json" -H  "authorization: Basic YWRtaW46YWRtaW4="  | jq
+
+echo ""
+echo ""
+
+echo "Deployments:"
+curl -s -X GET "http://localhost:8080/v1/deployments" -H  "accept: application/json" -H  "authorization: Basic YWRtaW46YWRtaW4="  | jq
+ 

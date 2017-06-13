@@ -1,0 +1,39 @@
+#!/bin/bash
+
+body="{
+  \"content-type\": \"disk-raw\",
+  \"id\": \"9F3qNf\",
+  \"image-type\": \"implicit\",
+  \"environmentReference\": \"87945f45-c4fc-45bb-b5a2-9aa7be31a036\",
+  \"originEnvironment\": {
+    \"credentials\": {
+      \"location\": \"http://link-to-openstack:5000/v2.0\",
+      \"password\": \"password\",
+      \"username\": \"vice\",
+      \"specifics\": {
+        \"TenantName\": \"vice\",
+        \"Region\": \"RegionOne\"
+      }
+    },
+    \"id\": \"wzDkh0\",
+    \"managementlayer\": {
+      \"software\": \"openstack\",
+      \"type\": \"cloudcomputing\",
+      \"version\": \"kilo\"
+    },
+    \"runtimetechnology\": {
+      \"software\": \"string\",
+      \"type\": \"virtualmachine\",
+      \"version\": \"string\"
+    },
+    \"userid\": \"string\"
+  },
+  \"userid\": \"admin\"
+}"
+
+curl -X POST "http://localhost:8080/v1/images" -H  "accept: application/json" \
+	-H  "authorization: Basic YWRtaW46YWRtaW4=" \
+	-H  "content-type: application/json" \
+	-d "$body"
+
+
