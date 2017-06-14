@@ -4,11 +4,75 @@ services:
         extends:
           file: couchbase/docker-compose.yaml
           service: couchbase
+        environment:
+         - CLUSTER=localhost
+         - USER=admin
+         - PASS=secret
+         - PORT=8091
+         - RAMSIZEMB=2048
+         - RAMSIZEINDEXMB=512
+         - RAMSIZEFTSMB=512
+         - BUCKETS=
+         - BUCKETSIZES=
+         - AUTOREBALANCE=true          
     vice-mq:
         extends:
           file: rabbitmq/docker-compose.yaml
           service: rabbitmq
+        environment:
+         - RABBITMQ_DEFAULT_USER=vice
+         - RABBITMQ_DEFAULT_PASS=secret          
     vice-web-gui:
         extends:
           file: web-gui/docker-compose.yaml
           service: web-gui
+    vice-api:
+        image: viceregistry/vice-api
+        restart: on-failure
+        ports:
+         - 8080:8080
+        environment:
+         - PORT=8080
+         - COUCHBASE_LOCATION=vice-db
+         - COUCHBASE_USER=admin
+         - COUCHBASE_PASS=secret
+         - RABBITMQ_LOCATION=vice-mq
+         - RABBITMQ_USER=vice
+         - RABBITMQ_PASS=secret
+        depends_on:
+         - vice-db
+         - vice-mq
+    vice-import:
+        image: viceregistry/vice-worker
+        restart: on-failure
+        environment:
+         - WORKERTYPE=import
+         - COUCHBASE_LOCATION=vice-db
+         - COUCHBASE_USER=admin
+         - COUCHBASE_PASS=secret
+         - RABBITMQ_LOCATION=vice-mq
+         - RABBITMQ_USER=vice
+         - RABBITMQ_PASS=secret
+         - STORAGE_BASEPATH=/opt/images/
+        volumes:
+         - /tmp/vice-images/:/opt/images/
+        depends_on:
+         - vice-db
+         - vice-mq
+    vice-export:
+        image: viceregistry/vice-worker
+        restart: on-failure
+        environment:
+         - WORKERTYPE=export
+         - COUCHBASE_LOCATION=vice-db
+         - COUCHBASE_USER=admin
+         - COUCHBASE_PASS=secret
+         - RABBITMQ_LOCATION=vice-mq
+         - RABBITMQ_USER=vice
+         - RABBITMQ_PASS=secret
+         - STORAGE_BASEPATH=/opt/images/
+        volumes:
+         - /tmp/vice-images/:/opt/images/         
+        depends_on:
+         - vice-db
+         - vice-mq
