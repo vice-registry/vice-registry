@@ -15,3 +15,8 @@ echo ""
 echo "Deployments:"
 curl -s -X GET "http://localhost:8080/v1/deployments" -H  "accept: application/json" -H  "authorization: Basic YWRtaW46YWRtaW4="  | jq
  
+echo ""
+echo ""
+
+echo "Runtime Stats:"
+curl -s -X GET "http://localhost:8080/v1/runtimestats" -H  "accept: application/json" -H  "authorization: Basic YWRtaW46YWRtaW4="  | jq
