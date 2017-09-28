@@ -1,9 +1,7 @@
 version: '2'
 services:
     vice-db:
-        extends:
-          file: couchbase/docker-compose.yaml
-          service: couchbase
+        image: cha87de/couchbase-cloudnative
         environment:
          - CLUSTER=localhost
          - USER=admin
@@ -16,12 +14,10 @@ services:
          - BUCKETSIZES=
          - AUTOREBALANCE=true          
     vice-mq:
-        extends:
-          file: rabbitmq/docker-compose.yaml
-          service: rabbitmq
+        image: rabbitmq:management
         environment:
          - RABBITMQ_DEFAULT_USER=vice
-         - RABBITMQ_DEFAULT_PASS=secret          
+         - RABBITMQ_DEFAULT_PASS=secret
     vice-web-gui:
         extends:
           file: web-gui/docker-compose.yaml

@@ -1,7 +1,0 @@
-version: '2'
-services:
-    rabbitmq:
-        image: rabbitmq:management
-        environment:
-         - RABBITMQ_DEFAULT_USER=vice
-         - RABBITMQ_DEFAULT_PASS=secret
