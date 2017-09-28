@@ -12,7 +12,8 @@ body="{
       \"username\": \"vice\",
       \"specifics\": {
         \"TenantName\": \"vice\",
-        \"Region\": \"RegionOne\"
+        \"Region\": \"RegionOne\",
+        \"Domain\": \"Default\"
       }
     },
     \"id\": \"wzDkh0\",
