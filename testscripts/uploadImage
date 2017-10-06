@@ -1,0 +1,10 @@
+#!/bin/bash
+
+imageid="9F3qNf"
+
+curl -vvv -X POST \
+	-H  "authorization: Basic YWRtaW46YWRtaW4=" \
+	-F "upfile=@getEntities" \
+  --trace-ascii /dev/stdout \
+  "http://localhost:8080/v1/image/$imageid/file"
+
