@@ -48,7 +48,7 @@ services:
         depends_on:
          - vice-db
          - vice-mq
-	 - vice-store
+         - vice-store
     vice-export:
         image: viceregistry/vice-worker
         restart: on-failure
@@ -63,7 +63,7 @@ services:
         depends_on:
          - vice-db
          - vice-mq
-	 - vice-store
+         - vice-store
     vice-store:
         image: viceregistry/vice-store
         restart: on-failure
@@ -76,7 +76,7 @@ services:
          - RABBITMQ_PASS=secret
          - STORAGE_BASEPATH=/opt/images/
 	volumes:
-	 - /srv/vice/images:/opt/images
+         - /srv/vice/images:/opt/images
         depends_on:
          - vice-db
          - vice-mq
