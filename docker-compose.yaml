@@ -75,7 +75,7 @@ services:
          - RABBITMQ_USER=vice
          - RABBITMQ_PASS=secret
          - STORAGE_BASEPATH=/opt/images/
-	volumes:
+        volumes:
          - /srv/vice/images:/opt/images
         depends_on:
          - vice-db
