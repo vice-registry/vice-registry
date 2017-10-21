@@ -18,10 +18,6 @@ services:
         environment:
          - RABBITMQ_DEFAULT_USER=vice
          - RABBITMQ_DEFAULT_PASS=secret
-    vice-web-gui:
-        extends:
-          file: web-gui/docker-compose.yaml
-          service: web-gui
     vice-api:
         image: viceregistry/vice-api
         restart: on-failure
@@ -49,12 +45,10 @@ services:
          - RABBITMQ_LOCATION=vice-mq
          - RABBITMQ_USER=vice
          - RABBITMQ_PASS=secret
-         - STORAGE_BASEPATH=/opt/images/
-        volumes:
-         - /tmp/vice-images/:/opt/images/
         depends_on:
          - vice-db
          - vice-mq
+	 - vice-store
     vice-export:
         image: viceregistry/vice-worker
         restart: on-failure
@@ -66,9 +60,30 @@ services:
          - RABBITMQ_LOCATION=vice-mq
          - RABBITMQ_USER=vice
          - RABBITMQ_PASS=secret
-         - STORAGE_BASEPATH=/opt/images/
-        volumes:
-         - /tmp/vice-images/:/opt/images/         
         depends_on:
          - vice-db
          - vice-mq
+	 - vice-store
+    vice-store:
+        image: viceregistry/vice-store
+        restart: on-failure
+        environment:
+         - COUCHBASE_LOCATION=vice-db
+         - COUCHBASE_USER=admin
+         - COUCHBASE_PASS=secret
+         - RABBITMQ_LOCATION=vice-mq
+         - RABBITMQ_USER=vice
+         - RABBITMQ_PASS=secret
+         - STORAGE_BASEPATH=/opt/images/
+	volumes:
+	 - /srv/vice/images:/opt/images
+        depends_on:
+         - vice-db
+         - vice-mq
+    vice-webui:
+        image: viceregistry/vice-webui
+        restart: on-failure
+        ports:
+         - 8081:80
+        depends_on:
+         - vice-api
