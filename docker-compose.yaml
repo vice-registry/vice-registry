@@ -1,18 +1,27 @@
 version: '2'
 services:
+#    vice-db:
+#        image: cha87de/couchbase-cloudnative
+#        environment:
+#         - CLUSTER=localhost
+#         - USER=admin
+#         - PASS=secret
+#         - PORT=8091
+#         - RAMSIZEMB=2048
+#         - RAMSIZEINDEXMB=512
+#         - RAMSIZEFTSMB=512
+#         - BUCKETS=
+#         - BUCKETSIZES=
+#         - AUTOREBALANCE=true
+#         - RETRIES_INIT=50
+#        volumes:
+#         - /srv/vice/couchbase:/opt/couchbase/var/
     vice-db:
-        image: cha87de/couchbase-cloudnative
+        image: kallqvist/rethinkdb-cluster
         environment:
-         - CLUSTER=localhost
-         - USER=admin
-         - PASS=secret
-         - PORT=8091
-         - RAMSIZEMB=2048
-         - RAMSIZEINDEXMB=512
-         - RAMSIZEFTSMB=512
-         - BUCKETS=
-         - BUCKETSIZES=
-         - AUTOREBALANCE=true          
+         - JOIN=vice-db
+        volumes:
+         - /srv/vice/vice-db:/data
     vice-mq:
         image: rabbitmq:management
         environment:
