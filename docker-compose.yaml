@@ -34,9 +34,8 @@ services:
          - 8080:8080
         environment:
          - PORT=8080
-         - COUCHBASE_LOCATION=vice-db
-         - COUCHBASE_USER=admin
-         - COUCHBASE_PASS=secret
+         - RETHINKDB_LOCATION=vice-db
+         - RETHINKDB_DATABASE=vice
          - RABBITMQ_LOCATION=vice-mq
          - RABBITMQ_USER=vice
          - RABBITMQ_PASS=secret
@@ -48,9 +47,8 @@ services:
         restart: on-failure
         environment:
          - WORKERTYPE=import
-         - COUCHBASE_LOCATION=vice-db
-         - COUCHBASE_USER=admin
-         - COUCHBASE_PASS=secret
+         - RETHINKDB_LOCATION=vice-db
+         - RETHINKDB_DATABASE=vice
          - RABBITMQ_LOCATION=vice-mq
          - RABBITMQ_USER=vice
          - RABBITMQ_PASS=secret
@@ -63,9 +61,8 @@ services:
         restart: on-failure
         environment:
          - WORKERTYPE=export
-         - COUCHBASE_LOCATION=vice-db
-         - COUCHBASE_USER=admin
-         - COUCHBASE_PASS=secret
+         - RETHINKDB_LOCATION=vice-db
+         - RETHINKDB_DATABASE=vice
          - RABBITMQ_LOCATION=vice-mq
          - RABBITMQ_USER=vice
          - RABBITMQ_PASS=secret
@@ -77,9 +74,8 @@ services:
         image: viceregistry/vice-store
         restart: on-failure
         environment:
-         - COUCHBASE_LOCATION=vice-db
-         - COUCHBASE_USER=admin
-         - COUCHBASE_PASS=secret
+         - RETHINKDB_LOCATION=vice-db
+         - RETHINKDB_DATABASE=vice
          - RABBITMQ_LOCATION=vice-mq
          - RABBITMQ_USER=vice
          - RABBITMQ_PASS=secret
