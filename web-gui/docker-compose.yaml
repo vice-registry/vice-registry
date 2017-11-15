@@ -1,8 +1,0 @@
-version: '2'
-services:
-    web-gui:
-        image: httpd
-        ports:
-           - 80:80
-        volumes:
-            - ./htdocs://usr/local/apache2/htdocs/
