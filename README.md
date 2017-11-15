@@ -2,4 +2,11 @@
 
 This is the main repository of the ViCE Registry.
 
-![ViCE Registry components](components.png "ViCE Registry components")
+## ViCE Registry Architecture
+
+![ViCE Registry Architecture](vice-registry-architecture.png "ViCE Registry Architecture")
+
+## ViCE Registry Components
+
+![ViCE Registry Components](vice-registry-components.png "ViCE Registry Components")
+
