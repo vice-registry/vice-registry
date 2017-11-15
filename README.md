@@ -2,10 +2,10 @@
 
 * The ViCE registry is a central image registry
 * The ViCE registry bridges the gaps between 
- * organizations
- * execution environments and 
- * communities.
- 
+  * organizations
+  * execution environments and 
+  * communities.
+
 ViCE registry supports declarative images (e.g. Packerfiles, Dockerfiles)
 and implicit images (e.g. virtual machine disk snapshots, docker images).
 
