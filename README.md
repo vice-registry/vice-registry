@@ -12,6 +12,12 @@ and implicit images (e.g. virtual machine disk snapshots, docker images).
 The current version supports OpenStack Glance and bwLehrpool as execution
 environments.
 
+Build State for each component:
+ * ViCE API [![Build Status](https://travis-ci.org/vice-registry/vice-api.svg?branch=master)](https://travis-ci.org/vice-registry/vice-api)
+ * ViCE Worker  [![Build Status](https://travis-ci.org/vice-registry/vice-worker.svg?branch=master)](https://travis-ci.org/vice-registry/vice-worker)
+ * ViCE Store [![Build Status](https://travis-ci.org/vice-registry/vice-store.svg?branch=master)](https://travis-ci.org/vice-registry/vice-store)
+ * ViCE WebUI [![Build Status](https://travis-ci.org/vice-registry/vice-webui.svg?branch=master)](https://travis-ci.org/vice-registry/vice-webui)
+
 ## How to set up ViCE Registry
 
 The most recent versions of ViCE registry builds automatically and is shipped
