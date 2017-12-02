@@ -1,0 +1,63 @@
+version: '2'
+services:
+  vice-mq:
+    scale: 1
+    start_on_create: true
+  vice-store:
+    scale: 2
+    start_on_create: true
+  vice-export:
+    scale: 2
+    start_on_create: true
+  lb:
+    scale: 1
+    start_on_create: true
+    lb_config:
+      certs: []
+      default_cert: letsencrypt
+      port_rules:
+      - hostname: ''
+        path: /v1
+        priority: 1
+        protocol: http
+        service: vice-api
+        source_port: 80
+        target_port: 8080
+      - path: /
+        priority: 2
+        protocol: http
+        service: vice-webui
+        source_port: 80
+        target_port: 80
+      - path: /v1
+        priority: 4
+        protocol: https
+        service: vice-api
+        source_port: 443
+        target_port: 8080
+      - path: /
+        priority: 5
+        protocol: https
+        service: vice-webui
+        source_port: 443
+        target_port: 80
+    health_check:
+      healthy_threshold: 2
+      response_timeout: 2000
+      port: 42
+      unhealthy_threshold: 3
+      initializing_timeout: 60000
+      interval: 2000
+      reinitializing_timeout: 60000
+  vice-db:
+    scale: 1
+    start_on_create: true
+  vice-webui:
+    scale: 1
+    start_on_create: true
+  vice-import:
+    scale: 2
+    start_on_create: true
+  vice-api:
+    scale: 1
+    start_on_create: true
