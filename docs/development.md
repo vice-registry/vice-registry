@@ -13,9 +13,8 @@ Build State for each component:
 ## Architecture
 
 The basic architecture of the ViCE-Registry looks as follows:
-![ViCE Registry Architecture](docs/vice-registry-architecture.png "ViCE Registry Architecture")
+![ViCE Registry Architecture](vice-registry-architecture.png "ViCE Registry Architecture")
 
 These layers are implemented by components, which are micro services communicating
 over RabbitMQ as message queue:
-![ViCE Registry Components](docs/vice-registry-components.png "ViCE Registry Components")
-
+![ViCE Registry Components](vice-registry-components.png "ViCE Registry Components")

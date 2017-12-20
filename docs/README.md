@@ -20,3 +20,10 @@ This documentation consists of several sections:
 3. [Usage Guide](./usage.md)
 4. [Development Guide](./development.md)
 
+## Further Reading
+
+The concept of the ViCE-Registry is published at the **9th IEEE International
+Conference on Cloud Computing Technology and Science (CloudCom 2017)** in Hong
+Kong on 11-14 December 2017 under the title "ViCE Registry: An Image Registry
+for Virtual Collaborative Environments". Proceedings not available at present
+(20.12.2017). The presentation slides are [available here](CloudCom-2017_ViCE-Registry.pdf).
