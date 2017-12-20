@@ -1,5 +1,14 @@
 # ViCE-Registry Documentation
 
+## Structure
+
+This documentation consists of several sections:
+
+1. [Motivation & Use Cases](./motivation.md)
+2. [Installation  Guide](./installation.md)
+3. [Usage Guide](./usage.md)
+4. [Development Guide](./development.md)
+
 ## Overview
 
 The ViCE Registry allows to import virtual environments, which can then later be
@@ -9,16 +18,6 @@ environments. The synchronization between virtual registries and allows to
 export virtual environments to institutional repositories.
 
 ![ViCE Registry Overview](index_overview.png "ViCE Registry Overview")
-
-
-## Structure
-
-This documentation consists of several sections:
-
-1. [Motivation & Use Cases](./motivation.md)
-2. [Installation  Guide](./installation.md)
-3. [Usage Guide](./usage.md)
-4. [Development Guide](./development.md)
 
 ## Further Reading
 

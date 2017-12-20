@@ -1,5 +1,14 @@
 # ViCE-Registry Documentation
 
+## Structure
+
+This documentation consists of several sections:
+
+1. [Motivation & Use Cases](./motivation.md)
+2. [Installation  Guide](./installation.md)
+3. [Usage Guide](./usage.md)
+4. [Development Guide](./development.md)
+
 ## Component Overview
 
 ViCE-Registry is build as Docker images and published on Docker hub. We

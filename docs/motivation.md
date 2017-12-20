@@ -1,5 +1,16 @@
 # ViCE-Registry Documentation
 
+## Structure
+
+This documentation consists of several sections:
+
+1. [Motivation & Use Cases](./motivation.md)
+2. [Installation  Guide](./installation.md)
+3. [Usage Guide](./usage.md)
+4. [Development Guide](./development.md)
+
+## Motivation
+
 Virtual Environments can be found in any area of modern computing. One example:
 a chemical scientist describes a computation for running in an HPC cluster. This
 computation, as a declarative description of a virtual environment, depends on
